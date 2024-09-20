@@ -4,6 +4,10 @@ A tool for visualizing the Abstract Syntax Tree (AST) of PostgreSQL queries in r
 
 ![Example](public/example.png)
 
+## Demo
+
+Check out the live demo: [pg-query-ast-explorer Demo](https://pg-query-ast-explorer.vercel.app/)
+
 ## How It Works
 
 - **PostgreSQL AST Parsing:** The tool converts PostgreSQL query strings into an AST, allowing users to explore the structure of their SQL queries.
