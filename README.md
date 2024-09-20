@@ -15,7 +15,7 @@ Check out the live demo: [pg-query-ast-explorer Demo](https://pg-query-ast-explo
 
 ## Tools Used
 
-- [`libpg-query-wasm`](https://github.com/pganalyze/pg-query-emscripten): Used to parse PostgreSQL queries into an AST using WebAssembly.
+- [`pg-query-emscripten`](https://github.com/pganalyze/pg-query-emscripten): Used to parse PostgreSQL queries into an AST using WebAssembly.
 - [`shiki`](https://github.com/shikijs/shiki): Used for syntax highlighting in the code editor.
 - [`monaco-editor`](https://github.com/microsoft/monaco-editor): Used for the code editor
 
