@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html, root {
-    color: "white"
+html,
+root {
+  color: "white";
 }

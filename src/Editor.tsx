@@ -62,5 +62,5 @@ export default function Editor(props: EditorProps) {
     return () => editor.dispose();
   }, [onChange]);
 
-  return <div ref={ref} style={{ height: "100vh" }} />;
+  return <div ref={ref} className="h-full" />;
 }

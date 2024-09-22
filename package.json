@@ -12,6 +12,7 @@
   "dependencies": {
     "@ark-ui/react": "^3.12.1",
     "@shikijs/monaco": "^1.18.0",
+    "lucide-react": "^0.445.0",
     "monaco-editor": "0.52.0",
     "monaco-editor-core": "^0.52.0",
     "pg-query-emscripten": "^5.1.0",
@@ -32,6 +33,7 @@
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.12",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
