@@ -1,23 +1,35 @@
 import { Splitter } from "@ark-ui/react";
 import React, { useEffect, useState } from "react";
+import type { ParseMode } from "./App";
 import Editor from "./Editor";
 import Viewer from "./Viewer";
 
-// @ts-expect-error types are not available
-import PGQuery from "pg-query-emscripten";
+import { loadModule, parseSync, scanSync } from "@libpg-query/parser";
 
-const pgQuery = await new PGQuery();
+await loadModule();
 
-const SplitterPanel: React.FC = () => {
+interface SplitterPanelProps {
+  parseMode: ParseMode;
+}
+
+const SplitterPanel: React.FC<SplitterPanelProps> = ({ parseMode }) => {
   const [value, setValue] = useState("");
   const isVertical = useIsVertical();
 
+  const getProcessedValue = () => {
+    if (!value) return null;
+    
+    try {
+      const result = parseMode === "scan" ? scanSync(value) : parseSync(value);
+      return JSON.stringify(result, null, 2);
+    } catch (error) {
+      return JSON.stringify({ error: error instanceof Error ? error.message : String(error) }, null, 2);
+    }
+  };
+
   return (
     <Splitter.Root
-      defaultSize={[
-        { id: "a", size: 50 },
-        { id: "b", size: 50 },
-      ]}
+      panels={[{ id: "a" }, { id: "b" }]}
       orientation={isVertical ? "vertical" : "horizontal"}
     >
       <Splitter.Panel id="a">
@@ -28,7 +40,7 @@ const SplitterPanel: React.FC = () => {
         className="w-1 bg-gray-200 transition-colors duration-200 ease-in-out hover:bg-gray-400"
       />
       <Splitter.Panel id="b">
-        {value ? <Viewer value={JSON.stringify(pgQuery.parse(value), null, 2)} /> : null}
+        {value ? <Viewer value={getProcessedValue() || ""} /> : null}
       </Splitter.Panel>
     </Splitter.Root>
   );

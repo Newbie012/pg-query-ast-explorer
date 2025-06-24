@@ -7,7 +7,7 @@ interface ViewerProps {
 
 export default function Viewer(props: ViewerProps) {
   const ref = React.useRef<HTMLDivElement>(null);
-  const editorInstance = React.useRef<monaco.editor.IStandaloneCodeEditor>();
+  const editorInstance = React.useRef<monaco.editor.IStandaloneCodeEditor>(null);
   const initialValue = React.useRef(props.value);
 
   React.useEffect(() => {
